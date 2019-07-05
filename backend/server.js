@@ -15,16 +15,16 @@ function init() {
   //parsea json
   server.use(bodyParser.json());
 
-  server.use("(/:type/*)|(/:type)", (req, res, next) => {
-      if (!homes[req.params.type]) {
-          console.log(` home de ${req.params.type} no existe`  )
-          res.status(404).end()
-      }
-      else {
-        console.log(` home de ${req.params.type} si existe `  )
-        next()
-      }
-  })
+  // server.use("(/:type/*)|(/:type)", (req, res, next) => {
+  //     if (!homes[req.params.type]) {
+  //         console.log(` home de ${req.params.type} no existe`  )
+  //         res.status(404).end()
+  //     }
+  //     else {
+  //       console.log(` home de ${req.params.type} si existe `  )
+  //       next()
+  //     }
+  // })
 
   server.use(cors())
 
@@ -48,7 +48,7 @@ function init() {
     res.status(204).end();  
   })
 
-  server.post("/:type", (req, res) => {
+   server.post("/:type", (req, res) => {
     home = homes[req.params.type]
     home.insert(req.body)
     res.status(204).end();  
