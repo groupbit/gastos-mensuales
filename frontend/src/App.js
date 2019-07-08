@@ -1,26 +1,85 @@
 import React from 'react';
-import logo from './logo.svg';
+import Gastos from './components/Gastos.js'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+
 import './App.css';
+// import GastoForm from './components/GastoForm.js';
+
+
+function GastosComponent(){
+  return (<Gastos losGastos="Gastos" />)
+          
+
+}
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+  <div>
+    <Router>
+      <header>
+         <div>
+			    <nav  className="light-blue darken-4">
+            <div class="container">
+
+            <a> Los gastos del mes</a> 
+            </div>
+          </nav>
+          
+        </div>
       </header>
-    </div>
+   
+      {/* <Gastos></Gastos>  */}
+      <main>
+      <Switch>
+            <Route path="/gastos" component={GastosComponent} />
+
+      </Switch>
+      </main>
+      </Router>
+     
+      </div>
+  
   );
+  
 }
 
 export default App;
+
+
+
+// import React from 'react';
+// import Gastos from "./components/Gastos"
+
+// import './App.css';
+
+
+// function App() {
+//   return (
+//     <div className="container">
+    
+//         <header className="App-header">
+      
+//          <div>
+// 			    <nav  class="navbar navbar-default navbar-fixed-top navbar-custom App">
+//             <div class="navbar-header">
+//      		    <a href="/clientes" class="btn btn-info" role="button">Gastos Mensuales</a>   		    
+//        	    </div>
+//        	  </nav>
+//          </div>
+//       </header>     
+//       <main className="App">
+//         </main>
+    
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+// export default App;
