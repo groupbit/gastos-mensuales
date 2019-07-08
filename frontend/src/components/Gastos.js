@@ -8,7 +8,6 @@ class Gastos extends React.Component{
         super(props)
     this.state={gastos:[], selected:{}}
     this.select=this.select.bind(this);
-    // this.componentWillMount=this.componentWillMount.bind(this);
     this.gastoChange=this.gastoChange.bind(this);
     }
 
@@ -21,7 +20,7 @@ class Gastos extends React.Component{
 
     render() {
         if( this.state.gastos.length > 0 ) {
-          
+    
           return(
             <div className="gastosCSS">
             <GastoForm gasto={this.state.selected}  gastoChange={this.gastoChange}></GastoForm>
