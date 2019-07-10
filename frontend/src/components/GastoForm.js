@@ -20,7 +20,6 @@ class GastoForm extends React.Component {
   }
   handleSubmit(event) {
     this.editarGasto();
-    this.estadoInicial();
     event.preventDefault();
   }
   estadoInicial() {
