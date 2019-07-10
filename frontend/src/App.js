@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import Gastos from './components/Gastos.js'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+
 import './App.css';
+
+function GastosComponent(){
+  return (<Gastos losGastos="Gastos" />)
+
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+  <div>
+    <Router>
+      <header>
+         <div>
+			    <nav  className="light-blue darken-4">
+            <div class="container">
+            <h1> Los gastos del mes</h1> 
+            </div>
+          </nav>
+        </div>
+        <Gastos></Gastos>
       </header>
-    </div>
+      <main>
+      <Switch>
+            <Route path="/gastos" component={GastosComponent} />
+
+      </Switch>
+      </main>
+      </Router>
+     
+      </div>
+  
   );
+  
 }
 
 export default App;
+
+
+
