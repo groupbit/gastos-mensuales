@@ -5,7 +5,7 @@ Home = require("./src/mongo/mongoHome")
 mongoConnection.connect( (db) => {
   
 gastoHome = new Home("gastos", db)
-//gastoHome.insert(new Gasto(12/01/2001, "hola"))
+gastoHome.insert(new Gasto("12-02-2018","alumbrado", "1200"))
 server.register(gastoHome)
   
   server.init();

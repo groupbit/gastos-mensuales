@@ -17,10 +17,11 @@ function App() {
          <div>
 			    <nav  className="light-blue darken-4">
             <div class="container">
-            <a> Los gastos del mes</a> 
+            <h1> Los gastos del mes</h1> 
             </div>
           </nav>
         </div>
+        <Gastos></Gastos>
       </header>
       <main>
       <Switch>

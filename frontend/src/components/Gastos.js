@@ -12,12 +12,14 @@ class Gastos extends React.Component{
     }
 
     componentWillMount(){
-      fetch(`http://localhost:8888/gastos`)
-      .then(res=>res.json())
-      .then(gtos=>this.setState({gastos:gtos}));
+     this.actualizarLista(); 
       
     }
-
+    actualizarLista(){
+    fetch(`http://localhost:8888/gastos`)
+      .then(res=>res.json())
+      .then(gtos=>this.setState({gastos:gtos}));
+    }
     render() {
         if( this.state.gastos.length > 0 ) {
     
