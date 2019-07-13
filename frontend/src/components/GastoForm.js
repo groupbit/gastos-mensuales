@@ -7,7 +7,7 @@ class GastoForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.estadoInicial = this.estadoInicial.bind(this);
-  
+  }
   componentWillReceiveProps(props) {
     this.setState({ gasto: props.gasto });
   }
