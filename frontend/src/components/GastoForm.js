@@ -6,28 +6,26 @@ class GastoForm extends React.Component {
     this.state = { gasto: props.gasto };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-   
-  }
+    this.estadoInicial = this.estadoInicial.bind(this);
   
   componentWillReceiveProps(props) {
     this.setState({ gasto: props.gasto });
   }
-
   handleChange(event) {
+    console.log("editando");
     var newGasto = Object.assign({}, this.state.gasto);
     newGasto[event.target.name] = event.target.value;
     this.setState({ gasto: newGasto });
   }
   handleSubmit(event) {
     this.editarGasto();
-    event.preventDefault();
+    event.preventDeafult();
   }
   estadoInicial() {
     this.setState({ gasto: { fecha: "", concepto: "", importe: "" } });
   }
-
- 
   editarGasto() {
+    console.log(this.state);
     fetch("http://localhost:8888/gastos", {
       method: "PUT",
       body: JSON.stringify(this.state.gasto),
@@ -35,10 +33,7 @@ class GastoForm extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    })
-      .then(res => this.props.gastoChange(this.state.gasto))
-      .then(_ => this.estadoInicial())
-      .catch(err => console.log(err));
+    }).then(this.estadoInicial());
   }
   render() {
     return (
@@ -89,5 +84,4 @@ class GastoForm extends React.Component {
     );
   }
 }
-
 export default GastoForm;
