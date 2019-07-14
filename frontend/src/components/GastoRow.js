@@ -26,6 +26,7 @@ class GastoRow extends React.Component {
   }
   render() {
     return (
+      
       <tr key={this.props.gasto._id}>
         <td>{this.props.gasto.fecha}</td>
         <td>{this.props.gasto.concepto}</td>
@@ -34,24 +35,24 @@ class GastoRow extends React.Component {
           {" "}
           <button
             type="button"
-            className="btn btn-success"
-            style={{ margin: "4px" }}
+            className="btn #283593 indigo darken-3"
+            style={{ margin: "2px" }}
             onClick={this.selectGasto}
           >
-            Editar
+            <i className="material-icons">edit</i>
           </button>
           <button
             type="button"
-            class="btn btn-danger"
+            class="btn #283593 indigo darken-3"
             onClick={() => {
               this.eliminarGasto(this.props.gasto._id);
             }}
           >
-            {" "}
-            Borrar
+            <i className="material-icons">delete</i>
           </button>
         </td>
       </tr>
+      
     );
   }
 }

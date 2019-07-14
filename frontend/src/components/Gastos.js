@@ -24,25 +24,29 @@ class Gastos extends React.Component {
   render() {
     if (this.state.gastos.length > 0) {
       return (
-        <div className="gastosCSS">
+        <div className="container">
           <GastoForm
             gasto={this.state.selected}
             gastoChange={this.gastoChange}
             actualizarListaDeGastos={this.actualizarListaDeGastos}
           />
 
-          <h1>Listado de gastos</h1>
-
-          <table className="table">
-            <thead>
-              <tr>
-                <th>fecha</th>
-                <th>concepto</th>
-                <th>importe</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderRows()}</tbody>
-          </table>
+          <div className="container">
+            <div className="row">
+              <table className="left responsive-table">
+                <thead>
+                  <tr>
+                    <th>fecha</th>
+                    <th>concepto</th>
+                    <th>importe</th>
+                  </tr>
+                </thead>
+                <tbody className="bordered hoverable">
+                  {this.renderRows()}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       );
     } else {

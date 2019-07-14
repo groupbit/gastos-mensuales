@@ -41,10 +41,10 @@ class GastoForm extends React.Component {
         <div className="row">
           <div className="col s5">
             <div className="card">
-              <div className="card-content">
-                <form onSubmit={this.handleSubmit}>
+              <div className="card-panel blue-grey ">
+                <form onSubmit={this.handleSubmit} className="responsive-form">
                   <div className="input-field s12">
-                    <input
+                    <input className="#fce4ec pink lighten-5"
                       type="text"
                       name="fecha"
                       placeholder="12-02-2019"
@@ -53,7 +53,7 @@ class GastoForm extends React.Component {
                     />
                   </div>
                   <div className="input-field s12">
-                    <input
+                    <input className="#fce4ec pink lighten-5"
                       type="text"
                       name="concepto"
                       placeholder="gas"
@@ -62,17 +62,17 @@ class GastoForm extends React.Component {
                     />
                   </div>
                   <div className="input-field s12">
-                    <input
+                    <input className="#fce4ec pink lighten-5"
                       type="number"
                       name="importe"
                       placeholder="1200"
                       value={this.state.gasto.importe}
                       onChange={this.handleChange}
                     />
-                    <input
+                    <input className="btn #283593 indigo darken-3"
                       type="submit"
                       value="Submit"
-                      className="btn brn-light darken-4"
+                     
                     />
                   </div>
                 </form>
@@ -80,7 +80,7 @@ class GastoForm extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+       </div> 
     );
   }
 }
