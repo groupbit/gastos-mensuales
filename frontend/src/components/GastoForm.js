@@ -6,6 +6,7 @@ class GastoForm extends React.Component {
     this.state = { gasto: props.gasto };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.estadoInicial=this.estadoInicial.bind(this);
   }
   componentWillReceiveProps(props) {
     this.setState({ gasto: props.gasto });
@@ -17,9 +18,11 @@ class GastoForm extends React.Component {
   }
   handleSubmit(event) {
     this.editarGasto();
+    event.preventDefault();
+    
   }
   estadoInicial() {
-    this.setState({ gasto: { fecha: "", concepto: "", importe: "" } });
+    this.setState({ gasto: { fecha: " ", concepto: " ", importe: " " } });
   }
 
   editarGasto() {
@@ -30,7 +33,9 @@ class GastoForm extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(this.estadoInicial());
+    }).then(res => this.props.gastoChange(this.state.gasto))
+    .then(this.estadoInicial)
+    
   }
   render() {
     return (
