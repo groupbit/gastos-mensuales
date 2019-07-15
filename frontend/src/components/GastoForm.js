@@ -6,13 +6,11 @@ class GastoForm extends React.Component {
     this.state = { gasto: props.gasto };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-   
+    this.estadoInicial=this.estadoInicial.bind(this);
   }
-  
   componentWillReceiveProps(props) {
     this.setState({ gasto: props.gasto });
   }
-
   handleChange(event) {
     var newGasto = Object.assign({}, this.state.gasto);
     newGasto[event.target.name] = event.target.value;
@@ -21,12 +19,12 @@ class GastoForm extends React.Component {
   handleSubmit(event) {
     this.editarGasto();
     event.preventDefault();
+    
   }
   estadoInicial() {
-    this.setState({ gasto: { fecha: "", concepto: "", importe: "" } });
+    this.setState({ gasto: { fecha: " ", concepto: " ", importe: " " } });
   }
 
- 
   editarGasto() {
     fetch("http://localhost:8888/gastos", {
       method: "PUT",
@@ -35,10 +33,9 @@ class GastoForm extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    })
-      .then(res => this.props.gastoChange(this.state.gasto))
-      .then(_ => this.estadoInicial())
-      .catch(err => console.log(err));
+    }).then(res => this.props.gastoChange(this.state.gasto))
+    .then(this.estadoInicial)
+    
   }
   render() {
     return (
@@ -52,7 +49,7 @@ class GastoForm extends React.Component {
                     <input
                       type="text"
                       name="fecha"
-                      placeholder="12-02-2019"
+                      placeholder="2019-12-28"
                       value={this.state.gasto.fecha}
                       onChange={this.handleChange}
                     />
@@ -89,5 +86,4 @@ class GastoForm extends React.Component {
     );
   }
 }
-
 export default GastoForm;
