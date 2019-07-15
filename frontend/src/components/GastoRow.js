@@ -4,7 +4,7 @@ class GastoRow extends React.Component {
   constructor(props) {
     super(props);
     this.selectGasto = this.selectGasto.bind(this);
-    this.actualizar = this.actualizar.bind(this);
+  
   }
   selectGasto() {
     this.props.selector(this.props.gasto);
