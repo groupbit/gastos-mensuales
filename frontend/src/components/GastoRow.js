@@ -13,16 +13,13 @@ class GastoRow extends React.Component {
     this.props.actualizarListaDeGastos(this.props.gasto);
   }
   eliminarGasto(id) {
-    console.log("id eliminando", id);
-    fetch(
-      fetch("http://localhost:8888/gastos/" + id, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      }).then(this.actualizar())
-    );
+    fetch("http://localhost:8888/gastos/" + id, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    }).then(this.actualizar());
   }
   render() {
     return (
@@ -47,7 +44,6 @@ class GastoRow extends React.Component {
               this.eliminarGasto(this.props.gasto._id);
             }}
           >
-            {" "}
             Borrar
           </button>
         </td>
