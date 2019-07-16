@@ -6,26 +6,27 @@ class GastoForm extends React.Component {
     this.state = { gasto: props.gasto };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.estadoInicial = this.estadoInicial.bind(this);
+//    this.estadoInicial = this.estadoInicial.bind(this);
   }
   componentWillReceiveProps(props) {
     this.setState({ gasto: props.gasto });
   }
   handleChange(event) {
-    console.log("editando");
     var newGasto = Object.assign({}, this.state.gasto);
     newGasto[event.target.name] = event.target.value;
     this.setState({ gasto: newGasto });
+   
   }
   handleSubmit(event) {
     this.editarGasto();
-    event.preventDeafult();
+    event.preventDefault();
   }
+
   estadoInicial() {
     this.setState({ gasto: { fecha: "", concepto: "", importe: "" } });
   }
+
   editarGasto() {
-    console.log(this.state);
     fetch("http://localhost:8888/gastos", {
       method: "PUT",
       body: JSON.stringify(this.state.gasto),
@@ -33,7 +34,10 @@ class GastoForm extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(this.estadoInicial());
+    })
+      .then(res => this.props.gastoChange(this.state.gasto))
+     .then(this.estadoInicial);
+    
   }
   render() {
     return (
@@ -44,16 +48,18 @@ class GastoForm extends React.Component {
               <div className="card-panel blue-grey ">
                 <form onSubmit={this.handleSubmit} className="responsive-form">
                   <div className="input-field s12">
-                    <input className="#fce4ec pink lighten-5"
+                    <input
+                      className="#fce4ec pink lighten-5"
                       type="text"
                       name="fecha"
-                      placeholder="12-02-2019"
+                      placeholder="2019-12-28"
                       value={this.state.gasto.fecha}
                       onChange={this.handleChange}
                     />
                   </div>
                   <div className="input-field s12">
-                    <input className="#fce4ec pink lighten-5"
+                    <input
+                      className="#fce4ec pink lighten-5"
                       type="text"
                       name="concepto"
                       placeholder="gas"
@@ -62,17 +68,18 @@ class GastoForm extends React.Component {
                     />
                   </div>
                   <div className="input-field s12">
-                    <input className="#fce4ec pink lighten-5"
+                    <input
+                      className="#fce4ec pink lighten-5"
                       type="number"
                       name="importe"
                       placeholder="1200"
                       value={this.state.gasto.importe}
                       onChange={this.handleChange}
                     />
-                    <input className="btn #283593 indigo darken-3"
+                    <input
+                      className="btn #283593 indigo darken-3"
                       type="submit"
                       value="Submit"
-                     
                     />
                   </div>
                 </form>
@@ -80,7 +87,7 @@ class GastoForm extends React.Component {
             </div>
           </div>
         </div>
-       </div> 
+      </div>
     );
   }
 }

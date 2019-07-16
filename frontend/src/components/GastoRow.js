@@ -4,7 +4,7 @@ class GastoRow extends React.Component {
   constructor(props) {
     super(props);
     this.selectGasto = this.selectGasto.bind(this);
-    this.actualizar = this.actualizar.bind(this);
+  
   }
   selectGasto() {
     this.props.selector(this.props.gasto);
@@ -13,16 +13,13 @@ class GastoRow extends React.Component {
     this.props.actualizarListaDeGastos(this.props.gasto);
   }
   eliminarGasto(id) {
-    console.log("id eliminando", id);
-    fetch(
-      fetch("http://localhost:8888/gastos/" + id, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      }).then(this.actualizar())
-    );
+    fetch("http://localhost:8888/gastos/" + id, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    }).then(this.actualizar());
   }
   render() {
     return (
