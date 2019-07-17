@@ -53,7 +53,7 @@ class Gastos extends React.Component {
       return (
         <div className="gastosCSS">
           <h2>Gastos</h2>
-          CARGANDO
+              CARGANDO
         </div>
       );
     }
@@ -65,6 +65,7 @@ class Gastos extends React.Component {
           gasto={unGasto}
           selector={this.select}
           actualizarListaDeGastos={this.actualizarListaDeGastos}
+          gastoChange={this.gastoChange}
         />
       );
     });
@@ -85,6 +86,7 @@ class Gastos extends React.Component {
       item => unGasto._id !== item._id
     );
     this.setState({ gastos: gastoActualizado });
+    console.log(this.state)
   }
 }
 export default Gastos;

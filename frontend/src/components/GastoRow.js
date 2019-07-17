@@ -4,7 +4,11 @@ class GastoRow extends React.Component {
   constructor(props) {
     super(props);
     this.selectGasto = this.selectGasto.bind(this);
+    this.actualizar=this.actualizar.bind(this);
   
+  }
+  estadoInicial() {
+    this.setState({ gasto: { fecha: "" , concepto: "", importe: "" } });
   }
   selectGasto() {
     this.props.selector(this.props.gasto);
@@ -12,6 +16,7 @@ class GastoRow extends React.Component {
   actualizar() {
     this.props.actualizarListaDeGastos(this.props.gasto);
   }
+ 
   eliminarGasto(id) {
     fetch("http://localhost:8888/gastos/" + id, {
       method: "DELETE",
@@ -19,7 +24,10 @@ class GastoRow extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(this.actualizar());
+    })
+    .then(this.actualizar)
+   
+    
   }
   render() {
     return (
@@ -29,8 +37,7 @@ class GastoRow extends React.Component {
         <td>{this.props.gasto.concepto}</td>
         <td>{this.props.gasto.importe}</td>
         <td>
-          {" "}
-          <button
+            <button
             type="button"
             className="btn #283593 indigo darken-3"
             style={{ margin: "2px" }}
