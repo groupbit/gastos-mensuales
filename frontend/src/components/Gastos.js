@@ -54,7 +54,7 @@ class Gastos extends React.Component {
       return (
         <div className="gastosCSS">
           <h2>Gastos</h2>
-              CARGANDO
+          CARGANDO
         </div>
       );
     }
@@ -87,16 +87,6 @@ class Gastos extends React.Component {
       item => unGasto._id !== item._id
     );
     this.setState({ gastos: gastoActualizado });
-    console.log(this.state)
   }
-  sumarGastos(losGastos){
-    var inicio= 0;
-    this.state.gastos.forEach(g => {
-       inicio+= g.importe
-    })
-    
-
-    
- }
 }
 export default Gastos;

@@ -14,13 +14,13 @@ class GastoForm extends React.Component {
 
   handleChange(event) {
     var newGasto = Object.assign({}, this.state.gasto);
-    newGasto[event.target.name] = event.target.value; // toUpperCase();
+    newGasto[event.target.name] = event.target.value; 
     this.setState({ gasto: newGasto });
   }
 
   handleSubmit(event) {
     if (this.state.gasto._id) {
-      console.log(event);
+   
       this.editarGasto();
     } else {
       this.agregarGasto();
@@ -33,7 +33,7 @@ class GastoForm extends React.Component {
   }
 
   agregarGasto() {
-    console.log(this.state.gasto);
+   
     fetch(`http://localhost:8888/gastos/`, {
       method: "POST",
       body: JSON.stringify(this.state.gasto),
@@ -47,7 +47,7 @@ class GastoForm extends React.Component {
   }
 
   editarGasto() {
-    console.log(this.state.gasto);
+   
     fetch("http://localhost:8888/gastos", {
       method: "PUT",
       body: JSON.stringify(this.state.gasto),
@@ -102,7 +102,7 @@ class GastoForm extends React.Component {
                       style={{ margin: "2px" }}
                       onClick={this.handleSubmit}
                     >
-                      Modificar/Agregar
+                      Guardar
                     </button>
                   </div>
                 </form>

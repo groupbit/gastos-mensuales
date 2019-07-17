@@ -15,7 +15,7 @@ function App() {
         <header>
           <nav className="light-blue darken-4">
             <div className="container">
-              <a href="/gastos" className="brand-logo" role="button">
+              <a href="/" className="brand-logo" role="button">
                 Planilla de gastos
               </a>
             </div>
