@@ -39,6 +39,7 @@ class Gastos extends React.Component {
                     <th>fecha</th>
                     <th>concepto</th>
                     <th>importe</th>
+                    <th>subtotal</th>
                   </tr>
                 </thead>
                 <tbody className="bordered hoverable">
@@ -78,7 +79,7 @@ class Gastos extends React.Component {
     var newGastos = this.state.gastos.map(item =>
       unGasto._id !== item._id ? item : unGasto
     );
-    this.setState({ gastos: newGastos });
+    this.setState({ gastos: newGastos, selected: {} });
   }
 
   actualizarListaDeGastos(unGasto) {
@@ -88,5 +89,14 @@ class Gastos extends React.Component {
     this.setState({ gastos: gastoActualizado });
     console.log(this.state)
   }
+  sumarGastos(losGastos){
+    var inicio= 0;
+    this.state.gastos.forEach(g => {
+       inicio+= g.importe
+    })
+    
+
+    
+ // }
 }
 export default Gastos;

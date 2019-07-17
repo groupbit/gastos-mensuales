@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
-
 function GastosComponent() {
   return <Gastos losGastos="Gastos" />;
 }
@@ -16,9 +15,7 @@ function App() {
         <header>
           <nav className="light-blue darken-4">
             <div className="container">
-       
               <a href="/gastos" className="brand-logo" role="button">
-                {" "}
                 Planilla de gastos
               </a>
             </div>
@@ -26,7 +23,7 @@ function App() {
         </header>
         <main>
           <Switch>
-            <Route path="/gastos" component={GastosComponent} />
+            <Route path="/" component={GastosComponent} />
           </Switch>
         </main>
       </Router>

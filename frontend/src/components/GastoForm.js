@@ -41,9 +41,9 @@ class GastoForm extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(res => this.props.gastoChange(this.state.gasto))
-    .then(this.estadoInicial)
-  
+    })
+      .then(res => this.props.gastoChange(this.state.gasto))
+      .then(this.estadoInicial);
   }
 
   editarGasto() {
@@ -98,11 +98,11 @@ class GastoForm extends React.Component {
                     />
                     <button
                       type="button"
-                      className="btn #283593 indigo darken-3"
+                      className="btn #283593 indigo darken-3 "
                       style={{ margin: "2px" }}
                       onClick={this.handleSubmit}
                     >
-                      <i className="material-icons">add</i>
+                      Modificar/Agregar
                     </button>
                   </div>
                 </form>

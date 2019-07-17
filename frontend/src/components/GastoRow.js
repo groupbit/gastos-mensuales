@@ -7,9 +7,7 @@ class GastoRow extends React.Component {
     this.actualizar=this.actualizar.bind(this);
   
   }
-  estadoInicial() {
-    this.setState({ gasto: { fecha: "" , concepto: "", importe: "" } });
-  }
+  
   selectGasto() {
     this.props.selector(this.props.gasto);
   }
@@ -36,6 +34,7 @@ class GastoRow extends React.Component {
         <td>{this.props.gasto.fecha}</td>
         <td>{this.props.gasto.concepto}</td>
         <td>{this.props.gasto.importe}</td>
+        <td>{this.props.gasto.subtotal}</td>
         <td>
             <button
             type="button"
