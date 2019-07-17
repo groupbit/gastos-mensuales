@@ -67,7 +67,7 @@ class GastoForm extends React.Component {
                   <div className="input-field s12">
                     <input
                       className="#fce4ec pink lighten-5"
-                      type="text"
+                      type="Date"
                       name="fecha"
                       placeholder="2019-12-28"
                       value={this.state.gasto.fecha}
