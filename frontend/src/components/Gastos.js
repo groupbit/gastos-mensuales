@@ -97,6 +97,6 @@ class Gastos extends React.Component {
     
 
     
- // }
+ }
 }
 export default Gastos;
