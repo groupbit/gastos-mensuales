@@ -63,11 +63,11 @@ class GastoForm extends React.Component {
           <div className="col s5">
             <div className="card">
               <div className="card-panel blue-grey ">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                   <div className="input-field s12">
                     <input
                       className="#fce4ec pink lighten-5"
-                      type="Date"
+                      type="date"
                       name="fecha"
                       placeholder="2019-12-28"
                       value={this.state.gasto.fecha}
@@ -87,17 +87,18 @@ class GastoForm extends React.Component {
                   <div className="input-field s12">
                     <input
                       className="#fce4ec pink lighten-5"
-                      type="number"
+                      type="text"
+                      required
                       name="importe"
                       placeholder="1200"
                       value={this.state.gasto.importe}
                       onChange={this.handleChange}
                     />
                     <button
-                      type="button"
+                      type="submit"
                       className="btn #283593 indigo darken-3 "
                       style={{ margin: "2px" }}
-                      onClick={this.handleSubmit}
+                      
                     >
                       Guardar
                     </button>
