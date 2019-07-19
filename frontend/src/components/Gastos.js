@@ -2,6 +2,7 @@ import React from "react";
 import GastoRow from "./GastoRow";
 import GastoForm from "./GastoForm";
 
+
 class Gastos extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +28,7 @@ class Gastos extends React.Component {
     if (this.state.gastos.length > 0) {
       return (
         <div className="container">
+      
           <GastoForm
             gasto={this.state.selected}
             gastoChange={this.gastoChange}

@@ -3,6 +3,7 @@ import Gastos from "./components/Gastos.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
+import MenuLateral from "./components/MenuLateral.js";
 
 function GastosComponent() {
   return <Gastos losGastos="Gastos" />;
@@ -20,6 +21,7 @@ function App() {
               </a>
             </div>
           </nav>
+          <MenuLateral></MenuLateral>
         </header>
         <main>
           <Switch>
