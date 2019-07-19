@@ -1,0 +1,6 @@
+idex.html 
+ <script>
+      document.addEventListener('DOMContentLoaded',function(){
+        M.AutoInit();
+      });
+    </script>
