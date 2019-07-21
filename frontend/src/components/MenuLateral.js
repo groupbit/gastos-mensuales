@@ -8,13 +8,11 @@ class MenuLateral extends React.Component {
           <li>
             <div className="user-view">
               <div className="background Lateral" />
-
               <a href="https://outlook.live.com/mail/inbox">
                 <span class="white-text name">Valeria Grandi</span>
               </a>
             </div>
           </li>
-
           <li>
             <a href="http://www.naturgy.com.ar/ar/1285084496929/inicio.html">
               Naturgy
