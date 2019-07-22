@@ -1,6 +1,6 @@
 import React from "react";
 
-class MenuLateral extends React.Component {
+class BarraLateral extends React.Component {
   render() {
     return (
       <div className="container">
@@ -32,4 +32,4 @@ class MenuLateral extends React.Component {
     );
   }
 }
-export default MenuLateral;
+export default BarraLateral;
