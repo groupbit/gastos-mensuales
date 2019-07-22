@@ -1,7 +1,7 @@
 import React from "react";
 import Gastos from "./components/Gastos.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import BarraLateral from "./components/MenuLateral.js"
+import BarraLateral from "./components/BarraLateral.js"
 import "./App.css";
 
 
