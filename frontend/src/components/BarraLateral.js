@@ -9,7 +9,7 @@ class BarraLateral extends React.Component {
             <div className="user-view">
               <div className="background Lateral" />
               <a href="https://outlook.live.com/mail/inbox">
-                <span class="white-text name">Valeria Grandi</span>
+                Valeria Grandi
               </a>
             </div>
           </li>
