@@ -1,6 +1,7 @@
 import React from "react";
 import GastoRow from "./GastoRow";
 import GastoForm from "./GastoForm";
+import Seleccion from "./Seleccion";
 
 var moment = require("moment");
 moment().format();
@@ -8,7 +9,7 @@ moment().format();
 class Gastos extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { gastos: [], selected: {}, items: [] };
+    this.state = { gastos: [], selected: {}, value: [] };
     this.select = this.select.bind(this);
     this.gastoChange = this.gastoChange.bind(this);
     this.actualizarListaDeGastos = this.actualizarListaDeGastos.bind(this);
@@ -17,6 +18,11 @@ class Gastos extends React.Component {
     this.listado = this.listado.bind(this);
 
     this.listadoDeGastoPorMes = this.listadoDeGastoPorMes.bind(this);
+    this.laSeleccion = this.laSeleccion.bind(this);
+  }
+
+  laSeleccion() {
+    return (<Seleccion listadoDeGastoPorMes={()=>this.listadoDeGastoPorMes}/>);
   }
 
   componentWillMount() {
@@ -112,10 +118,11 @@ class Gastos extends React.Component {
   }
 
   listadoDeGastoPorMes(event) {
+    //    console.log(event)
     var mes = this.state.gastos.filter(
-      item => event === moment(item.fecha).month
+      item => event === moment(item.fecha).month()
     );
-    //  this.setState({ items: mes });
+  //  this.setState({ gastos: mes });
   }
 }
 
